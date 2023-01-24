@@ -14,6 +14,20 @@
 		F42F5AA82980135700B303D6 /* ToDooey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AA62980135700B303D6 /* ToDooey.xcdatamodeld */; };
 		F42F5AAA2980135A00B303D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42F5AA92980135A00B303D6 /* Assets.xcassets */; };
 		F42F5AAD2980135A00B303D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42F5AAB2980135A00B303D6 /* LaunchScreen.storyboard */; };
+		F42F5AB9298015DE00B303D6 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AB8298015DE00B303D6 /* SplashScreenViewController.swift */; };
+		F42F5ABD298016DA00B303D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ABC298016DA00B303D6 /* LoginViewController.swift */; };
+		F42F5AC129801A9C00B303D6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AC029801A9C00B303D6 /* UIViewControllerExtensions.swift */; };
+		F42F5AC629801BE300B303D6 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AC529801BE300B303D6 /* MyView.swift */; };
+		F42F5AC829801D7D00B303D6 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AC729801D7D00B303D6 /* MyViewController.swift */; };
+		F42F5ACA29801FB100B303D6 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AC929801FB100B303D6 /* MyButton.swift */; };
+		F42F5ACC298021FC00B303D6 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ACB298021FC00B303D6 /* MyTextField.swift */; };
+		F42F5ACE2980280700B303D6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ACD2980280700B303D6 /* SignupViewController.swift */; };
+		F42F5AD12980336500B303D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AD02980336500B303D6 /* HomeViewController.swift */; };
+		F42F5AD3298038C400B303D6 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AD2298038C400B303D6 /* HomeModels.swift */; };
+		F42F5AD8298039DB00B303D6 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AD6298039DB00B303D6 /* TodoTableViewCell.swift */; };
+		F42F5AD9298039DB00B303D6 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42F5AD7298039DB00B303D6 /* TodoTableViewCell.xib */; };
+		F42F5ADB29803A1D00B303D6 /* MyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ADA29803A1C00B303D6 /* MyTableCell.swift */; };
+		F42F5ADE2980463D00B303D6 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ADD2980463D00B303D6 /* TodoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +40,20 @@
 		F42F5AA92980135A00B303D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F42F5AAC2980135A00B303D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F42F5AAE2980135A00B303D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F42F5AB8298015DE00B303D6 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		F42F5ABC298016DA00B303D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F42F5AC029801A9C00B303D6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		F42F5AC529801BE300B303D6 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
+		F42F5AC729801D7D00B303D6 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		F42F5AC929801FB100B303D6 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		F42F5ACB298021FC00B303D6 /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
+		F42F5ACD2980280700B303D6 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		F42F5AD02980336500B303D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F42F5AD2298038C400B303D6 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		F42F5AD6298039DB00B303D6 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		F42F5AD7298039DB00B303D6 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
+		F42F5ADA29803A1C00B303D6 /* MyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableCell.swift; sourceTree = "<group>"; };
+		F42F5ADD2980463D00B303D6 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +86,126 @@
 		F42F5A9C2980135700B303D6 /* ToDooey */ = {
 			isa = PBXGroup;
 			children = (
+				F42F5AD4298039B300B303D6 /* Cells */,
+				F42F5AB42980159100B303D6 /* Features */,
 				F42F5A9D2980135700B303D6 /* AppDelegate.swift */,
 				F42F5A9F2980135700B303D6 /* SceneDelegate.swift */,
 				F42F5AA12980135700B303D6 /* ViewController.swift */,
-				F42F5AA32980135700B303D6 /* Main.storyboard */,
 				F42F5AA92980135A00B303D6 /* Assets.xcassets */,
+				F42F5AA32980135700B303D6 /* Main.storyboard */,
 				F42F5AAB2980135A00B303D6 /* LaunchScreen.storyboard */,
 				F42F5AAE2980135A00B303D6 /* Info.plist */,
 				F42F5AA62980135700B303D6 /* ToDooey.xcdatamodeld */,
 			);
 			path = ToDooey;
+			sourceTree = "<group>";
+		};
+		F42F5AB42980159100B303D6 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5ADC2980461700B303D6 /* Todo item */,
+				F42F5ACF2980335700B303D6 /* Home */,
+				F42F5ABE29801A7F00B303D6 /* Core */,
+				F42F5AB52980159B00B303D6 /* Splash screen */,
+				F42F5AB6298015AD00B303D6 /* Auth */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F42F5AB52980159B00B303D6 /* Splash screen */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5AB8298015DE00B303D6 /* SplashScreenViewController.swift */,
+			);
+			path = "Splash screen";
+			sourceTree = "<group>";
+		};
+		F42F5AB6298015AD00B303D6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5ABB298016C800B303D6 /* Sign up */,
+				F42F5ABA298016C200B303D6 /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F42F5ABA298016C200B303D6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5ABC298016DA00B303D6 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F42F5ABB298016C800B303D6 /* Sign up */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5ACD2980280700B303D6 /* SignupViewController.swift */,
+			);
+			path = "Sign up";
+			sourceTree = "<group>";
+		};
+		F42F5ABE29801A7F00B303D6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5AC429801BD000B303D6 /* Base classes */,
+				F42F5ABF29801A8600B303D6 /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F42F5ABF29801A8600B303D6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5AC029801A9C00B303D6 /* UIViewControllerExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F42F5AC429801BD000B303D6 /* Base classes */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5AC529801BE300B303D6 /* MyView.swift */,
+				F42F5AC729801D7D00B303D6 /* MyViewController.swift */,
+				F42F5AC929801FB100B303D6 /* MyButton.swift */,
+				F42F5ACB298021FC00B303D6 /* MyTextField.swift */,
+				F42F5ADA29803A1C00B303D6 /* MyTableCell.swift */,
+			);
+			path = "Base classes";
+			sourceTree = "<group>";
+		};
+		F42F5ACF2980335700B303D6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5AD02980336500B303D6 /* HomeViewController.swift */,
+				F42F5AD2298038C400B303D6 /* HomeModels.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F42F5AD4298039B300B303D6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5AD5298039BD00B303D6 /* TodoCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F42F5AD5298039BD00B303D6 /* TodoCell */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5AD6298039DB00B303D6 /* TodoTableViewCell.swift */,
+				F42F5AD7298039DB00B303D6 /* TodoTableViewCell.xib */,
+			);
+			path = TodoCell;
+			sourceTree = "<group>";
+		};
+		F42F5ADC2980461700B303D6 /* Todo item */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5ADD2980463D00B303D6 /* TodoViewController.swift */,
+			);
+			path = "Todo item";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +269,7 @@
 				F42F5AAD2980135A00B303D6 /* LaunchScreen.storyboard in Resources */,
 				F42F5AAA2980135A00B303D6 /* Assets.xcassets in Resources */,
 				F42F5AA52980135700B303D6 /* Main.storyboard in Resources */,
+				F42F5AD9298039DB00B303D6 /* TodoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +280,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42F5AC629801BE300B303D6 /* MyView.swift in Sources */,
+				F42F5ABD298016DA00B303D6 /* LoginViewController.swift in Sources */,
 				F42F5AA22980135700B303D6 /* ViewController.swift in Sources */,
+				F42F5AD8298039DB00B303D6 /* TodoTableViewCell.swift in Sources */,
 				F42F5A9E2980135700B303D6 /* AppDelegate.swift in Sources */,
+				F42F5ACC298021FC00B303D6 /* MyTextField.swift in Sources */,
+				F42F5AC829801D7D00B303D6 /* MyViewController.swift in Sources */,
+				F42F5AD3298038C400B303D6 /* HomeModels.swift in Sources */,
+				F42F5ACE2980280700B303D6 /* SignupViewController.swift in Sources */,
 				F42F5AA02980135700B303D6 /* SceneDelegate.swift in Sources */,
+				F42F5ADB29803A1D00B303D6 /* MyTableCell.swift in Sources */,
+				F42F5AB9298015DE00B303D6 /* SplashScreenViewController.swift in Sources */,
+				F42F5ACA29801FB100B303D6 /* MyButton.swift in Sources */,
+				F42F5ADE2980463D00B303D6 /* TodoViewController.swift in Sources */,
 				F42F5AA82980135700B303D6 /* ToDooey.xcdatamodeld in Sources */,
+				F42F5AD12980336500B303D6 /* HomeViewController.swift in Sources */,
+				F42F5AC129801A9C00B303D6 /* UIViewControllerExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,11 +445,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDooey/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Todooey;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,11 +474,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDooey/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Todooey;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
