@@ -4,7 +4,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-class SignUpViewController : MyViewController {
+class SignUpViewController : MyViewController, SignupDisplayLogic{
     
     @IBOutlet weak var nameField            : MyTextField!
     @IBOutlet weak var emailField           : MyTextField!
@@ -13,10 +13,19 @@ class SignUpViewController : MyViewController {
     
     @IBOutlet weak var signUpBtn            : MyButton!
     
+    
+    var viewModel:SignupViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationItem.title = "Sign up"
+        viewModel = SignupViewModel(controller: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.hideNavBar = false
     }
     
     override func handleEvents() {
@@ -25,17 +34,16 @@ class SignUpViewController : MyViewController {
         self.signUpBtn.handleTap = signUp
     }
     
+    func navigateBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func signUp(){
+        let name = self.nameField.text!
         let email = self.emailField.text!
         let password = self.passwordField.text!
+        let confirmPassword = self.confirmPasswordField.text!
         
-        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
-            if error != nil {
-                print(error?.localizedDescription)
-            }else{
-                self?.navigationController?.popViewController(animated: true)
-            }
-          // ...
-        }
+        viewModel?.signUpWithEmail(email, name: name, password: password, AndConfirmPassword: confirmPassword)
     }
 }

@@ -38,6 +38,11 @@
 		F42F5B132981690400B303D6 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F42F5B122981690400B303D6 /* loading.json */; };
 		F42F5B152981697800B303D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B142981697800B303D6 /* LoginViewModel.swift */; };
 		F42F5B17298169DF00B303D6 /* LoginAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B16298169DF00B303D6 /* LoginAPIServices.swift */; };
+		F42F5B1929816F6000B303D6 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B1829816F6000B303D6 /* SignupViewModel.swift */; };
+		F42F5B1B29816F7700B303D6 /* SignupAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B1A29816F7700B303D6 /* SignupAPIServices.swift */; };
+		F42F5B1D29817C8E00B303D6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B1C29817C8D00B303D6 /* UIColorExtension.swift */; };
+		F42F5B1F2981859900B303D6 /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B1E2981859900B303D6 /* MyTextView.swift */; };
+		F4C2A5A629819F7F001A916A /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = F4C2A5A529819F7E001A916A /* splash.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +81,11 @@
 		F42F5B122981690400B303D6 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F42F5B142981697800B303D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F42F5B16298169DF00B303D6 /* LoginAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIServices.swift; sourceTree = "<group>"; };
+		F42F5B1829816F6000B303D6 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		F42F5B1A29816F7700B303D6 /* SignupAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAPIServices.swift; sourceTree = "<group>"; };
+		F42F5B1C29817C8D00B303D6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		F42F5B1E2981859900B303D6 /* MyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
+		F4C2A5A529819F7E001A916A /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				F42F5ACD2980280700B303D6 /* SignupViewController.swift */,
+				F42F5B1829816F6000B303D6 /* SignupViewModel.swift */,
+				F42F5B1A29816F7700B303D6 /* SignupAPIServices.swift */,
 			);
 			path = "Sign up";
 			sourceTree = "<group>";
@@ -206,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				F42F5AC029801A9C00B303D6 /* UIViewControllerExtensions.swift */,
+				F42F5B1C29817C8D00B303D6 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,6 +233,7 @@
 				F42F5ADA29803A1C00B303D6 /* MyTableCell.swift */,
 				F42F5ADF298100CC00B303D6 /* MyCheckbox.swift */,
 				F42F5B0C298163E500B303D6 /* BlurredView.swift */,
+				F42F5B1E2981859900B303D6 /* MyTextView.swift */,
 			);
 			path = "Base classes";
 			sourceTree = "<group>";
@@ -286,6 +300,7 @@
 		F42F5B11298168F400B303D6 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F4C2A5A529819F7E001A916A /* splash.json */,
 				F42F5B122981690400B303D6 /* loading.json */,
 			);
 			path = "Lottie Animations";
@@ -353,6 +368,7 @@
 			files = (
 				F42F5AAD2980135A00B303D6 /* LaunchScreen.storyboard in Resources */,
 				F42F5AAA2980135A00B303D6 /* Assets.xcassets in Resources */,
+				F4C2A5A629819F7F001A916A /* splash.json in Resources */,
 				F42F5B0829812CBC00B303D6 /* GoogleService-Info.plist in Resources */,
 				F42F5B132981690400B303D6 /* loading.json in Resources */,
 				F42F5AA52980135700B303D6 /* Main.storyboard in Resources */,
@@ -421,9 +437,12 @@
 				F42F5AC829801D7D00B303D6 /* MyViewController.swift in Sources */,
 				F42F5AD3298038C400B303D6 /* HomeModels.swift in Sources */,
 				F42F5ACE2980280700B303D6 /* SignupViewController.swift in Sources */,
+				F42F5B1B29816F7700B303D6 /* SignupAPIServices.swift in Sources */,
 				F42F5AA02980135700B303D6 /* SceneDelegate.swift in Sources */,
+				F42F5B1D29817C8E00B303D6 /* UIColorExtension.swift in Sources */,
 				F42F5AE0298100CC00B303D6 /* MyCheckbox.swift in Sources */,
 				F42F5ADB29803A1D00B303D6 /* MyTableCell.swift in Sources */,
+				F42F5B1F2981859900B303D6 /* MyTextView.swift in Sources */,
 				F42F5AB9298015DE00B303D6 /* SplashScreenViewController.swift in Sources */,
 				F42F5ACA29801FB100B303D6 /* MyButton.swift in Sources */,
 				F42F5ADE2980463D00B303D6 /* TodoViewController.swift in Sources */,
@@ -431,6 +450,7 @@
 				F42F5AA82980135700B303D6 /* ToDooey.xcdatamodeld in Sources */,
 				F42F5AD12980336500B303D6 /* HomeViewController.swift in Sources */,
 				F42F5B0529811D4300B303D6 /* DB.swift in Sources */,
+				F42F5B1929816F6000B303D6 /* SignupViewModel.swift in Sources */,
 				F42F5AC129801A9C00B303D6 /* UIViewControllerExtensions.swift in Sources */,
 				F42F5B0D298163E500B303D6 /* BlurredView.swift in Sources */,
 			);

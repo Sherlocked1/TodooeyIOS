@@ -4,7 +4,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-class LoginViewControlelr : MyViewController , LoginDisplayLogic {
+class LoginViewController : MyViewController , LoginDisplayLogic {
     
     @IBOutlet weak var usernameField    : MyTextField!
     @IBOutlet weak var passwordField    : MyTextField!
@@ -18,6 +18,11 @@ class LoginViewControlelr : MyViewController , LoginDisplayLogic {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         viewModel = LoginViewModel(controller: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.hideNavBar = true
     }
     
     override func handleEvents(){

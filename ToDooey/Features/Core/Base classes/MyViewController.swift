@@ -4,6 +4,15 @@ import Foundation
 import UIKit
 
 class MyViewController : UIViewController {
+    
+    var hideNavBar : Bool? = false {
+        didSet {
+            if let hideNavBar = hideNavBar{
+                self.navigationController?.isNavigationBarHidden = hideNavBar
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()

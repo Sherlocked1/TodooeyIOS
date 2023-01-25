@@ -41,6 +41,11 @@ class HomeViewController:MyViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.hideNavBar = false
+    }
+    
     override func handleEvents() {
         super.handleEvents()
         self.addBtn.handleTap = addToDo
@@ -64,15 +69,14 @@ class HomeViewController:MyViewController {
         self.navigationItem.rightBarButtonItem = .init(image: .init(systemName: "power"), style: .done, target: self, action: #selector(didTapSignout))
     }
     
-    func signOut(){
-        
+    func signOut(_ action:UIAlertAction){
         do {
             UI.ShowLoadingView()
             try Auth.auth().signOut()
             UI.HideLoadingView()
             // Sign-out successful
             DB.shared.deleteAllTodos()
-            let vc = LoginViewControlelr.instantiate(storyboard: .init(name: "Main", bundle: .main))
+            let vc = LoginViewController.instantiate(storyboard: .init(name: "Main", bundle: .main))
             let scene = UIApplication.shared.connectedScenes.first
             let window = (scene?.delegate as? SceneDelegate)?.window
             window?.rootViewController = UINavigationController(rootViewController: vc)
@@ -81,7 +85,6 @@ class HomeViewController:MyViewController {
             // An error occurred while signing out
             print(error.localizedDescription)
         }
-        
     }
     
     //add todo
@@ -93,7 +96,11 @@ class HomeViewController:MyViewController {
     
     //add button click event
     @objc func didTapSignout(){
-        signOut()
+        let alertVc = UIAlertController.init(title: "Sign out", message: "Are you sure you want to sign out ?", preferredStyle: .alert)
+        alertVc.addAction(.init(title: "Yes", style: .default, handler: signOut))
+        alertVc.addAction(.init(title: "Cancel", style: .cancel))
+        
+        self.present(alertVc, animated: true)
     }
 }
 

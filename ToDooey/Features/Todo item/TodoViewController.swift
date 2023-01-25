@@ -23,8 +23,9 @@ extension TodoActionDelegate {
 class TodoViewController : MyViewController {
     
     @IBOutlet weak var titleField : MyTextField!
-    @IBOutlet weak var descField  : UITextView!
+    @IBOutlet weak var descField  : MyTextView!
     @IBOutlet weak var dateField  : MyTextField!
+    @IBOutlet weak var comDate    : UIDatePicker!
     
     @IBOutlet weak var ctaBtn     : MyButton!
     @IBOutlet weak var buttonBottomConstraint:NSLayoutConstraint!
@@ -49,6 +50,11 @@ class TodoViewController : MyViewController {
         if action == .UPDATE {
             fillFields()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.hideNavBar = false
     }
     
     //Changes navigation bar tint color and title

@@ -43,16 +43,6 @@ class UI {
         
     }()
     
-    private static var ActivityIndicator: UIActivityIndicatorView = {
-        let ActivityIndicator = UIActivityIndicatorView()
-        
-        ActivityIndicator.frame.size = CGSize(width: 80 , height: 80)
-        ActivityIndicator.style = .whiteLarge
-        ActivityIndicator.hidesWhenStopped = true
-        
-        return ActivityIndicator
-    }()
-    
     private static var ClearView: UIView = {
         let ClearView = UIView()
         
@@ -66,8 +56,6 @@ class UI {
     }()
     
     class func ShowLoadingView() {
-        ActivityIndicator.center = ClearView.center
-        ActivityIndicator.startAnimating()
         UI.showBlur()
         ClearView.addSubview(animationView)
         animationView.play()

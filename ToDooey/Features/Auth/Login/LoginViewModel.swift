@@ -3,10 +3,10 @@
 import Foundation
 import FirebaseAuth
 
-typealias handler = ((_ result:AuthDataResult?,_ error:Error?)->Void)
+typealias authHandler = ((_ result:AuthDataResult?,_ error:Error?)->Void)
 
 protocol LoginAPI {
-    func login(email:String,password:String,handler:@escaping handler)
+    func login(email:String,password:String,handler:@escaping authHandler)
 }
 
 protocol LoginDisplayLogic {

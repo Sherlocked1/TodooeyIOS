@@ -24,7 +24,7 @@ class MyButton : UIButton {
     //MARK: - Button corners
     @IBInspectable var cornerType : String = "ALL"
     
-    @IBInspectable var cornerSize : CGFloat = 8 {
+    @IBInspectable var cornerSize : CGFloat = 15 {
         didSet {
             setNeedsDisplay()
         }
