@@ -2,10 +2,13 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class HomeViewController:MyViewController {
     
     @IBOutlet weak var todoTable    :UITableView!
+    
+    @IBOutlet weak var addBtn       :MyButton!
     
     //todos
     var todos : [TodoVM] = DB.shared.fetchTodos()
@@ -22,6 +25,25 @@ class HomeViewController:MyViewController {
         self.todoTable.register(TodoTableViewCell.nib, forCellReuseIdentifier:TodoTableViewCell.identifier)
         self.todoTable.delegate = self
         self.todoTable.dataSource = self
+        
+        //remove text from add button
+        self.addBtn.setTitle("", for: .normal)
+        
+        if todos.isEmpty {
+            FireDB.shared.getTodos(callBack: { todos, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                }else{
+                    self.todos = todos!
+                    self.todoTable.reloadData()
+                }
+            })
+        }
+    }
+    
+    override func handleEvents() {
+        super.handleEvents()
+        self.addBtn.handleTap = addToDo
     }
     
     //Changes navigation bar's title, tint color and back button color
@@ -37,9 +59,29 @@ class HomeViewController:MyViewController {
         navigationItem.setHidesBackButton(true, animated: true)
     }
     
-    //setting up the add button
+    //setting up the signout button
     func setUpRightButton(){
-        self.navigationItem.rightBarButtonItem = .init(image: .init(systemName: "plus"), style: .done, target: self, action: #selector(didTapAdd))
+        self.navigationItem.rightBarButtonItem = .init(image: .init(systemName: "power"), style: .done, target: self, action: #selector(didTapSignout))
+    }
+    
+    func signOut(){
+        
+        do {
+            UI.ShowLoadingView()
+            try Auth.auth().signOut()
+            UI.HideLoadingView()
+            // Sign-out successful
+            DB.shared.deleteAllTodos()
+            let vc = LoginViewControlelr.instantiate(storyboard: .init(name: "Main", bundle: .main))
+            let scene = UIApplication.shared.connectedScenes.first
+            let window = (scene?.delegate as? SceneDelegate)?.window
+            window?.rootViewController = UINavigationController(rootViewController: vc)
+            window?.makeKeyAndVisible()
+        } catch let error as NSError {
+            // An error occurred while signing out
+            print(error.localizedDescription)
+        }
+        
     }
     
     //add todo
@@ -50,8 +92,8 @@ class HomeViewController:MyViewController {
     }
     
     //add button click event
-    @objc func didTapAdd(){
-        addToDo()
+    @objc func didTapSignout(){
+        signOut()
     }
 }
 
@@ -95,31 +137,53 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
 
 extension HomeViewController : TodoActionDelegate {
     func addTodo(_ todo: TodoVM) {
-        self.todos.append(todo)
         
-        self.todoTable.reloadData()
-        DB.shared.add(TodoItem: todo)
+        FireDB.shared.addTodo(todo) { id, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }else{
+                
+                var newTodo = todo
+                newTodo.todoID = id!
+                
+                DB.shared.add(TodoItem: newTodo)
+                self.todos.append(newTodo)
+                self.todoTable.reloadData()
+            }
+        }
+        
     }
     
     func updateTodo(with newTodo: TodoVM) {
         let id = newTodo.todoID
         
-        let newTodos:[TodoVM] = self.todos.map { todo in
-            if todo.todoID == id {
-                return .init(id: todo.todoID, name: newTodo.name, date: newTodo.date, isDone: newTodo.isDone)
+        FireDB.shared.updateTodoWith(id, andReplaceWith: newTodo) { error in
+            if let error = error {
+                print(error.localizedDescription)
             }else{
-                return todo
+                let newTodos:[TodoVM] = self.todos.map { todo in
+                    if todo.todoID == id {
+                        return .init(id: todo.todoID, name: newTodo.name, date: newTodo.date, isDone: newTodo.isDone)
+                    }else{
+                        return todo
+                    }
+                }
+                self.todos = newTodos
+                self.todoTable.reloadData()
             }
         }
-        
-        self.todos = newTodos
-        self.todoTable.reloadData()
     }
     
     //delete item from table view
     func deleteTodoItem(_ todoitem:TodoVM,atRow row:Int) {
-        todos.remove(at: row)
-        todoTable.deleteRows(at: [.init(row: row, section: 0)], with: .left)
-        DB.shared.deleteTodo(withId:todoitem.todoID)
+        FireDB.shared.deleteTodo(todoitem) { [weak self] error in
+            if let error = error {
+                print(error.localizedDescription)
+            }else{
+                self?.todos.remove(at: row)
+                self?.todoTable.deleteRows(at: [.init(row: row, section: 0)], with: .left)
+                DB.shared.deleteTodo(withId:todoitem.todoID)
+            }
+        }
     }
 }

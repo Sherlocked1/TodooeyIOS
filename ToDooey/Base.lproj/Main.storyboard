@@ -59,13 +59,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="THV-V8-vAz">
                                                 <rect key="frame" x="20" y="35" width="335" height="378.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-QR-ip2" customClass="MyTextField" customModule="ToDooey" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-QR-ip2" customClass="MyTextField" customModule="ToDooey" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="0.0" width="315" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="ezU-zr-QTz"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rPo-Dm-gEx" customClass="MyTextField" customModule="ToDooey" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="60" width="315" height="50"/>
@@ -73,7 +73,7 @@
                                                             <constraint firstAttribute="height" constant="50" id="u57-6h-WNQ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJA-eu-dAs">
                                                         <rect key="frame" x="47.5" y="120" width="240" height="50"/>
@@ -166,7 +166,7 @@
                         <color key="backgroundColor" red="0.16078928109999999" green="0.45001214740000001" blue="0.50197112560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="gGW-Qr-bsT" firstAttribute="top" secondItem="r8A-XL-gOt" secondAttribute="top" id="5QY-UA-0vH"/>
-                            <constraint firstItem="r8A-XL-gOt" firstAttribute="bottom" secondItem="gGW-Qr-bsT" secondAttribute="bottom" id="DNc-FD-PX9"/>
+                            <constraint firstAttribute="bottom" secondItem="gGW-Qr-bsT" secondAttribute="bottom" id="DNc-FD-PX9"/>
                             <constraint firstItem="gGW-Qr-bsT" firstAttribute="leading" secondItem="r8A-XL-gOt" secondAttribute="leading" id="PeY-ge-Wq0"/>
                             <constraint firstItem="r8A-XL-gOt" firstAttribute="trailing" secondItem="gGW-Qr-bsT" secondAttribute="trailing" id="rZI-as-CGG"/>
                             <constraint firstItem="4yR-ZG-zwd" firstAttribute="height" secondItem="JhB-t8-9Ak" secondAttribute="height" multiplier="0.35" id="zEa-9G-21B"/>
@@ -204,13 +204,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aOf-EX-Suu">
                                                 <rect key="frame" x="15" y="40" width="345" height="383.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IeJ-rr-w6U" customClass="MyTextField" customModule="ToDooey" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IeJ-rr-w6U" customClass="MyTextField" customModule="ToDooey" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="O4Z-DW-ZEl"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wv9-cW-eQa" customClass="MyTextField" customModule="ToDooey" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="55" width="345" height="50"/>
@@ -226,7 +226,9 @@
                                                             <constraint firstAttribute="height" constant="50" id="Zzm-im-LBY"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="new-password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="new-password">
+                                                            <passwordRules key="passwordRules" passwordRulesDescriptor="^(?=.[a-z])(?=.[A-Z]).{6,}$"/>
+                                                        </textInputTraits>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fXv-AB-g6r" customClass="MyTextField" customModule="ToDooey" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="165" width="345" height="50"/>
@@ -234,7 +236,9 @@
                                                             <constraint firstAttribute="height" constant="50" id="ewe-bN-sfs"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="new-password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="new-password">
+                                                            <passwordRules key="passwordRules" passwordRulesDescriptor="^(?=.[a-z])(?=.[A-Z]).{6,}$"/>
+                                                        </textInputTraits>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6N-bI-X1G">
                                                         <rect key="frame" x="0.0" y="220" width="345" height="108.5"/>
@@ -283,9 +287,16 @@
                             <constraint firstItem="jhV-pZ-QtM" firstAttribute="height" secondItem="JCf-vp-Fa0" secondAttribute="height" multiplier="0.35" id="H1k-YN-KAa"/>
                             <constraint firstItem="NMJ-sF-CDb" firstAttribute="top" secondItem="JRL-s1-G0a" secondAttribute="top" id="L5u-Bj-MFg"/>
                             <constraint firstItem="NMJ-sF-CDb" firstAttribute="leading" secondItem="JRL-s1-G0a" secondAttribute="leading" id="YVf-nL-BmO"/>
-                            <constraint firstItem="JRL-s1-G0a" firstAttribute="bottom" secondItem="NMJ-sF-CDb" secondAttribute="bottom" id="j1a-Qf-jrD"/>
+                            <constraint firstAttribute="bottom" secondItem="NMJ-sF-CDb" secondAttribute="bottom" id="j1a-Qf-jrD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordField" destination="fXv-AB-g6r" id="iob-ng-m9R"/>
+                        <outlet property="emailField" destination="wv9-cW-eQa" id="qgC-7t-636"/>
+                        <outlet property="nameField" destination="IeJ-rr-w6U" id="J9U-Vb-Mlr"/>
+                        <outlet property="passwordField" destination="nhM-Xv-sX6" id="jSI-yT-Zki"/>
+                        <outlet property="signUpBtn" destination="Lbo-Dd-LsE" id="WxG-Dr-nE0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KWV-21-p81" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -303,6 +314,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0I-t8-gsd" customClass="MyButton" customModule="ToDooey" customModuleProvider="target">
+                                <rect key="frame" x="315" y="607" width="50" height="50"/>
+                                <color key="backgroundColor" name="accent"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Mv8-Vw-Ue7"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Wp5-7S-I97"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerSize">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FJv-AD-9lm"/>
                         <color key="backgroundColor" name="primary"/>
@@ -310,10 +339,13 @@
                             <constraint firstItem="FJv-AD-9lm" firstAttribute="bottom" secondItem="Yp0-oX-HOG" secondAttribute="bottom" id="0uR-EY-N4T"/>
                             <constraint firstItem="FJv-AD-9lm" firstAttribute="trailing" secondItem="Yp0-oX-HOG" secondAttribute="trailing" id="AkQ-Yp-Yjb"/>
                             <constraint firstItem="Yp0-oX-HOG" firstAttribute="top" secondItem="FJv-AD-9lm" secondAttribute="top" id="ccz-N5-qIm"/>
+                            <constraint firstItem="FJv-AD-9lm" firstAttribute="trailing" secondItem="Q0I-t8-gsd" secondAttribute="trailing" constant="10" id="lst-C9-rhV"/>
+                            <constraint firstItem="FJv-AD-9lm" firstAttribute="bottom" secondItem="Q0I-t8-gsd" secondAttribute="bottom" constant="10" id="oOu-VM-afK"/>
                             <constraint firstItem="Yp0-oX-HOG" firstAttribute="leading" secondItem="FJv-AD-9lm" secondAttribute="leading" id="xzh-OZ-JT1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addBtn" destination="Q0I-t8-gsd" id="fn4-5Q-9HB"/>
                         <outlet property="todoTable" destination="Yp0-oX-HOG" id="d9g-mb-tbE"/>
                     </connections>
                 </viewController>
@@ -404,9 +436,10 @@
     <resources>
         <image name="auth_image" width="780" height="804"/>
         <image name="login_image" width="848.67535400390625" height="469.44265747070312"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="signup_image" width="637.6700439453125" height="652.45733642578125"/>
         <namedColor name="accent">
-            <color red="0.25882352941176473" green="0.51764705882352946" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.25900000333786011" green="0.51800000667572021" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primary">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

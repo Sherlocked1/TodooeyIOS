@@ -3,7 +3,7 @@
 import Foundation
 
 struct TodoVM : Codable {
-    let todoID  :String
+    var todoID  :String
     var name    :String
     var date    :String
     var isDone  :Bool

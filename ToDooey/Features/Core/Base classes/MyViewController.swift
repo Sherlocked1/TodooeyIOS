@@ -11,5 +11,16 @@ class MyViewController : UIViewController {
         handleEvents()
     }
     
+    func displayError(error:String){
+        UI.HideLoadingView()
+        showAlertMessage(error)
+    }
+    
+    func showAlertMessage(_ message:String){
+        let alertVc = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertVc.addAction(.init(title: "Ok", style: .default))
+        self.present(alertVc, animated: true)
+    }
+    
     func handleEvents(){}
 }

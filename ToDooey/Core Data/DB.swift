@@ -67,4 +67,16 @@ extension DB {
         }
     }
     
+    func deleteAllTodos(){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TodoCD")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        do{
+            try context.execute(deleteRequest)
+            try context.save()
+            
+        }catch{
+            print("Could not delete cards \n error: \(error)\n DeleteRequest: \(deleteRequest)")
+        }
+    }
+    
 }
