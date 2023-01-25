@@ -8,11 +8,7 @@ class HomeViewController:MyViewController {
     @IBOutlet weak var todoTable    :UITableView!
     
     //todos
-    var todos : [TodoVM] = [
-        .init(id:1,name: "Complete all the college assignments", date: "May 16", isDone: false),
-        .init(id:2,name: "Buy watch for dad on father's day", date: "May 17", isDone: false),
-        .init(id:3,name: "Complete the task and send it", date: "28 jan", isDone: false),
-    ]
+    var todos : [TodoVM] = []
     
     //fires when the view controller is loaded
     override func viewDidLoad() {

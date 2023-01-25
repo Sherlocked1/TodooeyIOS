@@ -28,6 +28,7 @@
 		F42F5AD9298039DB00B303D6 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42F5AD7298039DB00B303D6 /* TodoTableViewCell.xib */; };
 		F42F5ADB29803A1D00B303D6 /* MyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ADA29803A1C00B303D6 /* MyTableCell.swift */; };
 		F42F5ADE2980463D00B303D6 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ADD2980463D00B303D6 /* TodoViewController.swift */; };
+		F42F5AE0298100CC00B303D6 /* MyCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ADF298100CC00B303D6 /* MyCheckbox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		F42F5AD7298039DB00B303D6 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		F42F5ADA29803A1C00B303D6 /* MyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableCell.swift; sourceTree = "<group>"; };
 		F42F5ADD2980463D00B303D6 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		F42F5ADF298100CC00B303D6 /* MyCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCheckbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		F42F5A9C2980135700B303D6 /* ToDooey */ = {
 			isa = PBXGroup;
 			children = (
+				F42F5AE1298105A700B303D6 /* CoreData */,
 				F42F5AD4298039B300B303D6 /* Cells */,
 				F42F5AB42980159100B303D6 /* Features */,
 				F42F5A9D2980135700B303D6 /* AppDelegate.swift */,
@@ -170,6 +173,7 @@
 				F42F5AC929801FB100B303D6 /* MyButton.swift */,
 				F42F5ACB298021FC00B303D6 /* MyTextField.swift */,
 				F42F5ADA29803A1C00B303D6 /* MyTableCell.swift */,
+				F42F5ADF298100CC00B303D6 /* MyCheckbox.swift */,
 			);
 			path = "Base classes";
 			sourceTree = "<group>";
@@ -206,6 +210,29 @@
 				F42F5ADD2980463D00B303D6 /* TodoViewController.swift */,
 			);
 			path = "Todo item";
+			sourceTree = "<group>";
+		};
+		F42F5AE1298105A700B303D6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5AE2298105B000B303D6 /* Models */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F42F5AE2298105B000B303D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5AE3298105B800B303D6 /* Todo */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F42F5AE3298105B800B303D6 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Todo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +317,7 @@
 				F42F5AD3298038C400B303D6 /* HomeModels.swift in Sources */,
 				F42F5ACE2980280700B303D6 /* SignupViewController.swift in Sources */,
 				F42F5AA02980135700B303D6 /* SceneDelegate.swift in Sources */,
+				F42F5AE0298100CC00B303D6 /* MyCheckbox.swift in Sources */,
 				F42F5ADB29803A1D00B303D6 /* MyTableCell.swift in Sources */,
 				F42F5AB9298015DE00B303D6 /* SplashScreenViewController.swift in Sources */,
 				F42F5ACA29801FB100B303D6 /* MyButton.swift in Sources */,

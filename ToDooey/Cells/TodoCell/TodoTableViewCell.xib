@@ -24,14 +24,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hjt-3c-vLR">
                                 <rect key="frame" x="10" y="10" width="316" height="34.333333333333336"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRD-UD-1Dw">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRD-UD-1Dw" customClass="MyCheckbox" customModule="ToDooey" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="34.333333333333336"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="8Oh-io-pxq"/>
                                             <constraint firstAttribute="width" constant="50" id="pCF-iQ-UmS"/>
                                         </constraints>
+                                        <color key="tintColor" name="accent"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="c"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZB-4G-B5Q">
                                         <rect key="frame" x="59.999999999999986" y="6.9999999999999982" width="182.66666666666663" height="20.333333333333329"/>
@@ -72,6 +73,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="isDoneBtn" destination="jRD-UD-1Dw" id="cIo-qV-AKP"/>
                 <outlet property="todoDate" destination="HM0-Wx-bwU" id="w1v-Sd-4P3"/>
                 <outlet property="todoTitle" destination="7ZB-4G-B5Q" id="u3d-sK-hx4"/>
                 <outlet property="todoView" destination="pFt-FQ-LCC" id="xYC-Tk-K4Y"/>
@@ -80,6 +82,10 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="circle" catalog="system" width="128" height="123"/>
+        <namedColor name="accent">
+            <color red="0.25882352941176473" green="0.51764705882352946" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="foreground_10%">
             <color red="0.023529411764705882" green="0.023529411764705882" blue="0.023529411764705882" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
