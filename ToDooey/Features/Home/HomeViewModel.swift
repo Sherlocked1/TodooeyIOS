@@ -10,6 +10,7 @@ protocol HomeAPI {
     func fetchTodos(handler:@escaping fetchHandler)
     func signOut(handler:@escaping signOutHandler)
     func deleteTodo(_ todo:TodoVM,handler:@escaping deleteTodoHandler)
+    func toggleTodo(_ todo:TodoVM,handler:@escaping updateTodoHandler)
 }
 
 protocol HomeDisplayLogic {
@@ -17,6 +18,7 @@ protocol HomeDisplayLogic {
     func displayError(error:String)
     func logUserOut()
     func displayDeletedTodoAtRow(_ row:Int)
+    func displayUpdatedTodo(newTodo:TodoVM)
 }
 
 class HomeViewModel {
@@ -35,6 +37,7 @@ class HomeViewModel {
             if (error != nil){
                 self.controller.displayError(error:error!.localizedDescription)
             }else{
+                DB.shared.add(todos: todos ?? [])
                 self.controller.displayTodos(todos ?? [])
             }
         }
@@ -58,6 +61,20 @@ class HomeViewModel {
             }else{
                 DB.shared.deleteTodo(withId:todo.todoID)
                 self.controller.displayDeletedTodoAtRow(row)
+            }
+        }
+    }
+    
+    func toggleTodo(todo:TodoVM){
+        var newTodo = todo
+        newTodo.isDone = !todo.isDone
+        print(newTodo)
+        apiServices.toggleTodo(newTodo) { error in
+            if (error != nil) {
+                self.controller.displayError(error: error!.localizedDescription)
+            }else{
+                DB.shared.updateTodoWithId(todo.todoID, withNewTodo: newTodo)
+                self.controller.displayUpdatedTodo(newTodo: newTodo)
             }
         }
     }

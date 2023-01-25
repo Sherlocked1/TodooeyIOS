@@ -47,6 +47,50 @@ extension DB {
         }
     }
     
+    ///Add multiple todos
+    func add(todos:[TodoVM]){
+        do {
+            for todo in todos {
+                let todoCD = TodoCD.init(context: context)
+                todoCD.todoID = todo.todoID
+                todoCD.todoTitle = todo.name
+                todoCD.todoDate = todo.date
+                todoCD.isDone = todo.isDone
+                try context.save()
+            }
+        }catch{
+            print(error.localizedDescription)
+        }
+    }
+    
+    ///update todo
+    ///- parameter id: the id for the todo item to update
+    ///- parameter newTodo: the new todo item data
+    func updateTodoWithId(_ id:String,withNewTodo newTodo:TodoVM){
+        let fetchRequest = TodoCD.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "todoID = %@", id)
+        
+        do {
+            let fetchResults = try context.fetch(fetchRequest)
+            
+            if fetchResults.count != 0 {
+                let object = fetchResults[0]
+                object.setValuesForKeys(
+                    [
+                        "isDone":newTodo.isDone,
+                        "todoDate":newTodo.date,
+                        "todoTitle":newTodo.name
+                    ] as [String:Any]
+                    
+                )
+            }
+            
+            try context.save()
+        }  catch let error as NSError {
+            print("Could not delete. \(error), \(error.userInfo)")
+        }
+    }
+    
     
     ///delete todo
     ///- parameter id: the id for the todo to delete

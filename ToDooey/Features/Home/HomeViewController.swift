@@ -7,8 +7,8 @@ import FirebaseAuth
 class HomeViewController:MyViewController {
     
     @IBOutlet weak var todoTable    :UITableView!
-    
     @IBOutlet weak var addBtn       :MyButton!
+    let refreshControl = UIRefreshControl()
     
     var viewModel:HomeViewModel?
     
@@ -32,16 +32,23 @@ class HomeViewController:MyViewController {
         
         //remove text from add button
         self.addBtn.setTitle("", for: .normal)
+        
+        //adds refresh control to the table view
+        todoTable.addSubview(refreshControl)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if todos.isEmpty {
-            UI.ShowLoadingView()
-            viewModel?.fetchTodos()
+            fetchAllTodos()
         }
         
+    }
+    
+    func fetchAllTodos(){
+        UI.ShowLoadingView()
+        viewModel?.fetchTodos()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +59,14 @@ class HomeViewController:MyViewController {
     override func handleEvents() {
         super.handleEvents()
         self.addBtn.handleTap = addToDo
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        self.fetchAllTodos()
     }
     
     //Changes navigation bar's title, tint color and back button color
@@ -106,6 +121,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TodoTableViewCell.identifier, for: indexPath) as! TodoTableViewCell
         
         cell.data = todos[indexPath.row]
+        cell.onChange = {[weak self] in self?.toggleTodoAtRow(indexPath.row)}
         
         return cell
     }
@@ -131,18 +147,36 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         ])
     }
     
+}
+
+extension HomeViewController : TodoActionDelegate {
+    
     //delete item from table view
     func deleteTodoItem(_ todoitem:TodoVM,atRow row:Int) {
         UI.ShowLoadingView()
         viewModel?.deleteTodo(todoitem, atRow: row)
     }
     
+    func addTodo(_ todo: TodoVM) {
+        self.todos.append(todo)
+        self.todoTable.reloadData()
+    }
+    
+    func updateTodo(with newTodo: TodoVM) {
+        self.displayUpdatedTodo(newTodo: newTodo)
+    }
+    
+    func toggleTodoAtRow(_ row:Int){
+        let todo = todos[row]
+        viewModel?.toggleTodo(todo: todo)
+    }
 }
 
 extension HomeViewController:HomeDisplayLogic {
     
     func displayTodos(_ todos: [TodoVM]) {
         UI.HideLoadingView()
+        refreshControl.endRefreshing()
         self.todos = todos
         self.todoTable.reloadData()
     }
@@ -162,16 +196,7 @@ extension HomeViewController:HomeDisplayLogic {
         self.todoTable.deleteRows(at: [.init(row: row, section: 0)], with: .left)
     }
     
-}
-
-extension HomeViewController : TodoActionDelegate {
-    
-    func addTodo(_ todo: TodoVM) {
-        self.todos.append(todo)
-        self.todoTable.reloadData()
-    }
-    
-    func updateTodo(with newTodo: TodoVM) {
+    func displayUpdatedTodo(newTodo:TodoVM) {
         let id = newTodo.todoID
         
         let newTodos:[TodoVM] = self.todos.map { todo in
@@ -184,4 +209,5 @@ extension HomeViewController : TodoActionDelegate {
         self.todos = newTodos
         self.todoTable.reloadData()
     }
+    
 }

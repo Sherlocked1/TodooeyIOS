@@ -14,12 +14,6 @@ class TodoAPIService : TodoAPI {
     }
     
     func updateTodoWithId(_ id: String, withData newTodo: TodoVM, handler: @escaping updateTodoHandler) {
-        FireDB.shared.updateTodoWith(id, andReplaceWith: newTodo) { error in
-            if (error != nil){
-                handler(error!)
-            }else{
-                handler(nil)
-            }
-        }
+        FireDB.shared.updateTodoWith(id, andReplaceWith: newTodo,callBack: handler)
     }
 }

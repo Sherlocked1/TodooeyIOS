@@ -14,26 +14,19 @@ class TodoTableViewCell: MyTableCell {
             if let data = data {
                 self.todoTitle.text = data.name
                 self.todoDate.text = data.date.getDateStringWithFormat("EE - HH:mm")
-                
-                isDoneBtn.onChange = {
-                    status in
-                    if status {
-                        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: self.todoTitle.text!)
-                        
-                        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
-                        
-                        self.todoTitle.attributedText = attributeString
-                    }else{
-                        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: self.todoTitle.text!)
-                        
-                        attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSRange.init(location: 0, length: attributeString.length))
-                        
-                        self.todoTitle.attributedText = attributeString
-                    }
-                    
-                }
+                self.isDoneBtn.isChecked = data.isDone
             }
         }
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.isDoneBtn.onClicked = {
+            [weak self] in
+            self?.onChange?()
+        }
+    }
+    
+    var onChange:(()->Void)?
     
 }

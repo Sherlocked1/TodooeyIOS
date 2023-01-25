@@ -11,6 +11,7 @@ class MyCheckbox: MyButton {
     
     //On change callback event
     var onChange:((_ boxStatus:Bool) -> Void)?
+    var onClicked:(()->Void)?
     
     // Bool property
     var isChecked: Bool = false {
@@ -33,5 +34,6 @@ class MyCheckbox: MyButton {
     //Checkbox click event
     func btnClicked(){
         isChecked = !isChecked
+        onClicked?()
     }
 }

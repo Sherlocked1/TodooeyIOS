@@ -41,6 +41,7 @@ class TodoViewModel {
             if (error != nil){
                 self.controller.displayError(error: error!.localizedDescription)
             }else{
+                DB.shared.updateTodoWithId(id, withNewTodo: newTodo)
                 self.controller.displayUpdatedTodo(newTodo)
             }
         }

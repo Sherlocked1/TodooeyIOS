@@ -45,7 +45,6 @@ class FireDB {
                     let title = document.get("Title") as! String
                     let isDone = document.get("IsDone") as! Bool
                     let date = document.get("Date") as! String
-//                    let desc = document.get("Desc") as! String
                     let id = document.documentID
                     
                     todos.append(.init(id: id, name: title, date: date, isDone: isDone))

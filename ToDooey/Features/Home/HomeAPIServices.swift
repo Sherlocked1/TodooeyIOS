@@ -30,4 +30,8 @@ class HomeAPIServices : HomeAPI {
             }
         }
     }
+    
+    func toggleTodo(_ todo: TodoVM, handler: @escaping updateTodoHandler) {
+        FireDB.shared.updateTodoWith(todo.todoID, andReplaceWith: todo, callBack: handler)
+    }
 }

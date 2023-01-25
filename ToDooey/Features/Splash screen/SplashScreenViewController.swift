@@ -13,6 +13,7 @@ class SplashScreenViewController:UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        animationView.animationSpeed = 2
         animationView.play { [weak self] completed in
             if completed {
                 self?.checkUserStatus()
