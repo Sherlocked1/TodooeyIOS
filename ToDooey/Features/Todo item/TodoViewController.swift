@@ -101,7 +101,7 @@ class TodoViewController : MyViewController {
 //        let desc = self.descField.text!
         let date = self.dateField.text!
         
-        let model:TodoVM = .init(id: 4, name: title, date: date, isDone: false)
+        let model:TodoVM = .init(id: UUID().uuidString, name: title, date: date, isDone: false)
         
         self.navigationController?.popViewController(animated: true)
         self.todoDelegate?.addTodo(model)
@@ -112,7 +112,7 @@ class TodoViewController : MyViewController {
 //        let desc = self.descField.text!
         let date = self.dateField.text!
         
-        let model:TodoVM = .init(id: todoItem!.id, name: title, date: date, isDone: todoItem!.isDone)
+        let model:TodoVM = .init(id: todoItem!.todoID, name: title, date: date, isDone: todoItem!.isDone)
         
         self.todoDelegate?.updateTodo(with: model)
         self.navigationController?.popViewController(animated: true)

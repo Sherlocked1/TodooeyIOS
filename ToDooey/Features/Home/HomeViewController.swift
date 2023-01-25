@@ -8,7 +8,7 @@ class HomeViewController:MyViewController {
     @IBOutlet weak var todoTable    :UITableView!
     
     //todos
-    var todos : [TodoVM] = []
+    var todos : [TodoVM] = DB.shared.fetchTodos()
     
     //fires when the view controller is loaded
     override func viewDidLoad() {
@@ -52,12 +52,6 @@ class HomeViewController:MyViewController {
     //add button click event
     @objc func didTapAdd(){
         addToDo()
-    }
-    
-    //delete item from table view
-    func deleteTodoItem(_ todoitem:TodoVM,atRow row:Int) {
-        todos.remove(at: row)
-        todoTable.deleteRows(at: [.init(row: row, section: 0)], with: .left)
     }
 }
 
@@ -104,14 +98,15 @@ extension HomeViewController : TodoActionDelegate {
         self.todos.append(todo)
         
         self.todoTable.reloadData()
+        DB.shared.add(TodoItem: todo)
     }
     
     func updateTodo(with newTodo: TodoVM) {
-        let id = newTodo.id
+        let id = newTodo.todoID
         
         let newTodos:[TodoVM] = self.todos.map { todo in
-            if todo.id == id {
-                return .init(id: todo.id, name: newTodo.name, date: newTodo.date, isDone: newTodo.isDone)
+            if todo.todoID == id {
+                return .init(id: todo.todoID, name: newTodo.name, date: newTodo.date, isDone: newTodo.isDone)
             }else{
                 return todo
             }
@@ -119,5 +114,12 @@ extension HomeViewController : TodoActionDelegate {
         
         self.todos = newTodos
         self.todoTable.reloadData()
+    }
+    
+    //delete item from table view
+    func deleteTodoItem(_ todoitem:TodoVM,atRow row:Int) {
+        todos.remove(at: row)
+        todoTable.deleteRows(at: [.init(row: row, section: 0)], with: .left)
+        DB.shared.deleteTodo(withId:todoitem.todoID)
     }
 }
