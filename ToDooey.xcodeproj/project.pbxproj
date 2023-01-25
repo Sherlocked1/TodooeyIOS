@@ -43,6 +43,12 @@
 		F42F5B1D29817C8E00B303D6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B1C29817C8D00B303D6 /* UIColorExtension.swift */; };
 		F42F5B1F2981859900B303D6 /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B1E2981859900B303D6 /* MyTextView.swift */; };
 		F4C2A5A629819F7F001A916A /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = F4C2A5A529819F7E001A916A /* splash.json */; };
+		F4C2A5A82981A8E5001A916A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5A72981A8E4001A916A /* StringExtensions.swift */; };
+		F4C2A5AA2981A8EF001A916A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5A92981A8EF001A916A /* DateExtensions.swift */; };
+		F4C2A5AC2981AD35001A916A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5AB2981AD34001A916A /* HomeViewModel.swift */; };
+		F4C2A5AE2981AD50001A916A /* HomeAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5AD2981AD50001A916A /* HomeAPIServices.swift */; };
+		F4C2A5B02981B1CD001A916A /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5AF2981B1CD001A916A /* TodoViewModel.swift */; };
+		F4C2A5B22981B1E0001A916A /* TodoAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5B12981B1E0001A916A /* TodoAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +92,12 @@
 		F42F5B1C29817C8D00B303D6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F42F5B1E2981859900B303D6 /* MyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 		F4C2A5A529819F7E001A916A /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		F4C2A5A72981A8E4001A916A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		F4C2A5A92981A8EF001A916A /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		F4C2A5AB2981AD34001A916A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F4C2A5AD2981AD50001A916A /* HomeAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIServices.swift; sourceTree = "<group>"; };
+		F4C2A5AF2981B1CD001A916A /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
+		F4C2A5B12981B1E0001A916A /* TodoAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +231,8 @@
 			children = (
 				F42F5AC029801A9C00B303D6 /* UIViewControllerExtensions.swift */,
 				F42F5B1C29817C8D00B303D6 /* UIColorExtension.swift */,
+				F4C2A5A72981A8E4001A916A /* StringExtensions.swift */,
+				F4C2A5A92981A8EF001A916A /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -243,6 +257,8 @@
 			children = (
 				F42F5AD02980336500B303D6 /* HomeViewController.swift */,
 				F42F5AD2298038C400B303D6 /* HomeModels.swift */,
+				F4C2A5AB2981AD34001A916A /* HomeViewModel.swift */,
+				F4C2A5AD2981AD50001A916A /* HomeAPIServices.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -268,6 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				F42F5ADD2980463D00B303D6 /* TodoViewController.swift */,
+				F4C2A5AF2981B1CD001A916A /* TodoViewModel.swift */,
+				F4C2A5B12981B1E0001A916A /* TodoAPIService.swift */,
 			);
 			path = "Todo item";
 			sourceTree = "<group>";
@@ -434,11 +452,14 @@
 				F42F5AD8298039DB00B303D6 /* TodoTableViewCell.swift in Sources */,
 				F42F5A9E2980135700B303D6 /* AppDelegate.swift in Sources */,
 				F42F5ACC298021FC00B303D6 /* MyTextField.swift in Sources */,
+				F4C2A5B02981B1CD001A916A /* TodoViewModel.swift in Sources */,
 				F42F5AC829801D7D00B303D6 /* MyViewController.swift in Sources */,
 				F42F5AD3298038C400B303D6 /* HomeModels.swift in Sources */,
+				F4C2A5AA2981A8EF001A916A /* DateExtensions.swift in Sources */,
 				F42F5ACE2980280700B303D6 /* SignupViewController.swift in Sources */,
 				F42F5B1B29816F7700B303D6 /* SignupAPIServices.swift in Sources */,
 				F42F5AA02980135700B303D6 /* SceneDelegate.swift in Sources */,
+				F4C2A5A82981A8E5001A916A /* StringExtensions.swift in Sources */,
 				F42F5B1D29817C8E00B303D6 /* UIColorExtension.swift in Sources */,
 				F42F5AE0298100CC00B303D6 /* MyCheckbox.swift in Sources */,
 				F42F5ADB29803A1D00B303D6 /* MyTableCell.swift in Sources */,
@@ -446,12 +467,15 @@
 				F42F5AB9298015DE00B303D6 /* SplashScreenViewController.swift in Sources */,
 				F42F5ACA29801FB100B303D6 /* MyButton.swift in Sources */,
 				F42F5ADE2980463D00B303D6 /* TodoViewController.swift in Sources */,
+				F4C2A5AE2981AD50001A916A /* HomeAPIServices.swift in Sources */,
 				F42F5B0B29813C1F00B303D6 /* FireDB.swift in Sources */,
 				F42F5AA82980135700B303D6 /* ToDooey.xcdatamodeld in Sources */,
 				F42F5AD12980336500B303D6 /* HomeViewController.swift in Sources */,
 				F42F5B0529811D4300B303D6 /* DB.swift in Sources */,
 				F42F5B1929816F6000B303D6 /* SignupViewModel.swift in Sources */,
+				F4C2A5B22981B1E0001A916A /* TodoAPIService.swift in Sources */,
 				F42F5AC129801A9C00B303D6 /* UIViewControllerExtensions.swift in Sources */,
+				F4C2A5AC2981AD35001A916A /* HomeViewModel.swift in Sources */,
 				F42F5B0D298163E500B303D6 /* BlurredView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

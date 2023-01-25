@@ -13,7 +13,7 @@ class TodoTableViewCell: MyTableCell {
         didSet{
             if let data = data {
                 self.todoTitle.text = data.name
-                self.todoDate.text = data.date
+                self.todoDate.text = data.date.getDateStringWithFormat("EE - HH:mm")
                 
                 isDoneBtn.onChange = {
                     status in

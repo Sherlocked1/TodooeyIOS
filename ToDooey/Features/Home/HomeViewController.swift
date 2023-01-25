@@ -10,12 +10,16 @@ class HomeViewController:MyViewController {
     
     @IBOutlet weak var addBtn       :MyButton!
     
+    var viewModel:HomeViewModel?
+    
     //todos
     var todos : [TodoVM] = DB.shared.fetchTodos()
     
     //fires when the view controller is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel = HomeViewModel(controller: self)
         
         personalizeNavBar()
         setUpRightButton()
@@ -28,17 +32,16 @@ class HomeViewController:MyViewController {
         
         //remove text from add button
         self.addBtn.setTitle("", for: .normal)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         if todos.isEmpty {
-            FireDB.shared.getTodos(callBack: { todos, error in
-                if let error = error {
-                    print(error.localizedDescription)
-                }else{
-                    self.todos = todos!
-                    self.todoTable.reloadData()
-                }
-            })
+            UI.ShowLoadingView()
+            viewModel?.fetchTodos()
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +57,7 @@ class HomeViewController:MyViewController {
     //Changes navigation bar's title, tint color and back button color
     func personalizeNavBar() {
         self.navigationController?.navigationBar.tintColor = .label
-        self.navigationItem.title = "ToDooey"
+        self.navigationItem.title = Auth.auth().currentUser?.displayName ?? "ToDooey"
         self.navigationController?.editButtonItem.tintColor = .label
     }
     
@@ -69,22 +72,10 @@ class HomeViewController:MyViewController {
         self.navigationItem.rightBarButtonItem = .init(image: .init(systemName: "power"), style: .done, target: self, action: #selector(didTapSignout))
     }
     
+    
     func signOut(_ action:UIAlertAction){
-        do {
-            UI.ShowLoadingView()
-            try Auth.auth().signOut()
-            UI.HideLoadingView()
-            // Sign-out successful
-            DB.shared.deleteAllTodos()
-            let vc = LoginViewController.instantiate(storyboard: .init(name: "Main", bundle: .main))
-            let scene = UIApplication.shared.connectedScenes.first
-            let window = (scene?.delegate as? SceneDelegate)?.window
-            window?.rootViewController = UINavigationController(rootViewController: vc)
-            window?.makeKeyAndVisible()
-        } catch let error as NSError {
-            // An error occurred while signing out
-            print(error.localizedDescription)
-        }
+        UI.ShowLoadingView()
+        viewModel?.signOut()
     }
     
     //add todo
@@ -94,7 +85,7 @@ class HomeViewController:MyViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    //add button click event
+    //sign out button click event
     @objc func didTapSignout(){
         let alertVc = UIAlertController.init(title: "Sign out", message: "Are you sure you want to sign out ?", preferredStyle: .alert)
         alertVc.addAction(.init(title: "Yes", style: .default, handler: signOut))
@@ -140,57 +131,57 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         ])
     }
     
+    //delete item from table view
+    func deleteTodoItem(_ todoitem:TodoVM,atRow row:Int) {
+        UI.ShowLoadingView()
+        viewModel?.deleteTodo(todoitem, atRow: row)
+    }
+    
+}
+
+extension HomeViewController:HomeDisplayLogic {
+    
+    func displayTodos(_ todos: [TodoVM]) {
+        UI.HideLoadingView()
+        self.todos = todos
+        self.todoTable.reloadData()
+    }
+    
+    func logUserOut() {
+        UI.HideLoadingView()
+        let vc = LoginViewController.instantiate(storyboard: .init(name: "Main", bundle: .main))
+        let scene = UIApplication.shared.connectedScenes.first
+        let window = (scene?.delegate as? SceneDelegate)?.window
+        window?.rootViewController = UINavigationController(rootViewController: vc)
+        window?.makeKeyAndVisible()
+    }
+    
+    func displayDeletedTodoAtRow(_ row: Int) {
+        UI.HideLoadingView()
+        self.todos.remove(at: row)
+        self.todoTable.deleteRows(at: [.init(row: row, section: 0)], with: .left)
+    }
+    
 }
 
 extension HomeViewController : TodoActionDelegate {
+    
     func addTodo(_ todo: TodoVM) {
-        
-        FireDB.shared.addTodo(todo) { id, error in
-            if let error = error {
-                print(error.localizedDescription)
-            }else{
-                
-                var newTodo = todo
-                newTodo.todoID = id!
-                
-                DB.shared.add(TodoItem: newTodo)
-                self.todos.append(newTodo)
-                self.todoTable.reloadData()
-            }
-        }
-        
+        self.todos.append(todo)
+        self.todoTable.reloadData()
     }
     
     func updateTodo(with newTodo: TodoVM) {
         let id = newTodo.todoID
         
-        FireDB.shared.updateTodoWith(id, andReplaceWith: newTodo) { error in
-            if let error = error {
-                print(error.localizedDescription)
+        let newTodos:[TodoVM] = self.todos.map { todo in
+            if todo.todoID == id {
+                return .init(id: todo.todoID, name: newTodo.name, date: newTodo.date, isDone: newTodo.isDone)
             }else{
-                let newTodos:[TodoVM] = self.todos.map { todo in
-                    if todo.todoID == id {
-                        return .init(id: todo.todoID, name: newTodo.name, date: newTodo.date, isDone: newTodo.isDone)
-                    }else{
-                        return todo
-                    }
-                }
-                self.todos = newTodos
-                self.todoTable.reloadData()
+                return todo
             }
         }
-    }
-    
-    //delete item from table view
-    func deleteTodoItem(_ todoitem:TodoVM,atRow row:Int) {
-        FireDB.shared.deleteTodo(todoitem) { [weak self] error in
-            if let error = error {
-                print(error.localizedDescription)
-            }else{
-                self?.todos.remove(at: row)
-                self?.todoTable.deleteRows(at: [.init(row: row, section: 0)], with: .left)
-                DB.shared.deleteTodo(withId:todoitem.todoID)
-            }
-        }
+        self.todos = newTodos
+        self.todoTable.reloadData()
     }
 }

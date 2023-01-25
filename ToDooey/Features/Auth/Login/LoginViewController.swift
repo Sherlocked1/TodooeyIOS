@@ -35,8 +35,8 @@ class LoginViewController : MyViewController , LoginDisplayLogic {
     }
     
     func signIn () {
-        let email = self.usernameField.text!
-        let password = self.passwordField.text!
+        let email = self.usernameField.text!.removeWhitespaces()
+        let password = self.passwordField.text!.removeWhitespaces()
         
         UI.ShowLoadingView()
         viewModel?.loginUserWithEmail(email, andPassword: password)

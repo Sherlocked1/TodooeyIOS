@@ -39,10 +39,10 @@ class SignUpViewController : MyViewController, SignupDisplayLogic{
     }
     
     func signUp(){
-        let name = self.nameField.text!
-        let email = self.emailField.text!
-        let password = self.passwordField.text!
-        let confirmPassword = self.confirmPasswordField.text!
+        let name = self.nameField.text!.removeWhitespaces()
+        let email = self.emailField.text!.removeWhitespaces()
+        let password = self.passwordField.text!.removeWhitespaces()
+        let confirmPassword = self.confirmPasswordField.text!.removeWhitespaces()
         
         viewModel?.signUpWithEmail(email, name: name, password: password, AndConfirmPassword: confirmPassword)
     }

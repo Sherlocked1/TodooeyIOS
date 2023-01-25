@@ -22,15 +22,13 @@ extension TodoActionDelegate {
 
 class TodoViewController : MyViewController {
     
-    @IBOutlet weak var titleField : MyTextField!
-    @IBOutlet weak var descField  : MyTextView!
-    @IBOutlet weak var dateField  : MyTextField!
-    @IBOutlet weak var comDate    : UIDatePicker!
-    
-    @IBOutlet weak var ctaBtn     : MyButton!
-    @IBOutlet weak var buttonBottomConstraint:NSLayoutConstraint!
+    @IBOutlet weak var titleField            : MyTextField!
+    @IBOutlet weak var dateField             : UIDatePicker!
+    @IBOutlet weak var ctaBtn                : MyButton!
+    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
     
     var todoDelegate:TodoActionDelegate?
+    var viewModel:TodoViewModel?
     
     
     var todoItem:TodoVM?
@@ -38,10 +36,11 @@ class TodoViewController : MyViewController {
     var action:TodoAction = .ADD
     
     override func viewDidLoad() {
-        
         if let _ = todoItem {
             action = .UPDATE
         }
+        
+        viewModel = TodoViewModel(controller: self)
         
         super.viewDidLoad()
         
@@ -65,30 +64,12 @@ class TodoViewController : MyViewController {
     
     func personalizeView(){
         ctaBtn.setTitle(action == .ADD ? "Add" : "Update", for: .normal)
-        setupDatePicker()
-    }
-    
-    func setupDatePicker(){
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
-        datePicker.locale = Locale.init(identifier: "en_us")
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.addTarget(self, action: #selector(didChangeDate), for: .valueChanged)
-        self.dateField.inputView = datePicker
-    }
-    
-    @objc func didChangeDate(_ sender:UIDatePicker){
-        let date = sender.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale.init(identifier: "en_us")
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        self.dateField.text = dateFormatter.string(from: date)
+        dateField.date = Date()
     }
     
     func fillFields(){
         self.titleField.text = todoItem?.name
-        self.dateField.text = todoItem?.date
-        self.descField.text = ""
+        self.dateField.date = todoItem!.date.toDate()
     }
     
     
@@ -103,25 +84,23 @@ class TodoViewController : MyViewController {
     }
     
     func addTodo(){
-        let title = self.titleField.text!
-//        let desc = self.descField.text!
-        let date = self.dateField.text!
+        let title = self.titleField.text!.removeWhitespaces()
+        let date = dateField.date.toString()
         
+        UI.ShowLoadingView()
         let model:TodoVM = .init(id: UUID().uuidString, name: title, date: date, isDone: false)
         
-        self.navigationController?.popViewController(animated: true)
-        self.todoDelegate?.addTodo(model)
+        viewModel?.addTodo(model)
     }
     
     func updateTodo(){
-        let title = self.titleField.text!
-//        let desc = self.descField.text!
-        let date = self.dateField.text!
+        let title = self.titleField.text!.removeWhitespaces()
+        let date = dateField.date.toString()
         
         let model:TodoVM = .init(id: todoItem!.todoID, name: title, date: date, isDone: todoItem!.isDone)
         
-        self.todoDelegate?.updateTodo(with: model)
-        self.navigationController?.popViewController(animated: true)
+        UI.ShowLoadingView()
+        viewModel?.updateTodoWithId(model.todoID, withData: model)
     }
     
     //move the button up when the keyboard shows
@@ -135,5 +114,18 @@ class TodoViewController : MyViewController {
     //move the button back to bottom when the keyboard is hidden
     @objc func keyboardWillHide(notification:NSNotification){
         self.buttonBottomConstraint.constant = 10
+    }
+}
+
+extension TodoViewController : TodoDisplayLogic {
+    func displayAddedTodo(_ todo: TodoVM) {
+        UI.HideLoadingView()
+        self.navigationController?.popViewController(animated: true)
+        todoDelegate?.addTodo(todo)
+    }
+    func displayUpdatedTodo(_ todo: TodoVM) {
+        UI.HideLoadingView()
+        self.navigationController?.popViewController(animated: true)
+        todoDelegate?.updateTodo(with: todo)
     }
 }

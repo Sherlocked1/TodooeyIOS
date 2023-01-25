@@ -36,6 +36,17 @@ class SignupViewModel {
                 if error != nil {
                     self?.controller.displayError(error: error!.localizedDescription)
                 }else{
+                    if let result = result {
+                        let changeRequest = result.user.createProfileChangeRequest()
+                        changeRequest.displayName = name
+                        changeRequest.commitChanges { (error) in
+                            if let error = error {
+                                print(error)
+                            } else {
+                                print("User created and display name set!")
+                            }
+                        }
+                    }
                     self?.controller.navigateBack()
                 }
             })
