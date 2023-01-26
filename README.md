@@ -25,6 +25,13 @@ With this app, you can easily keep track of your daily tasks and stay organized.
 <p>The data is stored in firestore and the user authentication is via firebase authentication.</p>
 <p>Used apple's notification center to schedule due date notifications for the app.</p>
 
+<h3>Guide</h3>
+<ol>
+  <li>Clone the project using <code>git clone https://github.com/Sherlocked1/TodooeyIOS.git</code> </li>
+  <li>Open the terminal in the project's directory and run <code>pod install</code></li>
+  <li>Open the generated xcworkspace project and run the application :)</li>
+</ol>
+
 <h3>Support</h3>
 
 If you have any questions or need assistance with the project, please contact me.
