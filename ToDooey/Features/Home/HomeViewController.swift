@@ -160,11 +160,13 @@ extension HomeViewController : TodoActionDelegate {
     
     //delete item from table view
     func deleteTodoItem(_ todoitem:TodoVM,atRow row:Int) {
+        TodoNotificationManager.shared.center.removePendingNotificationRequests(withIdentifiers: [todoitem.todoID])
         UI.ShowLoadingView()
         viewModel?.deleteTodo(todoitem, atRow: row)
     }
     
     func addTodo(_ todo: TodoVM) {
+        TodoNotificationManager.shared.scheduleNotification(for: todo)
         self.todos.append(todo)
         self.todoTable.reloadData()
     }

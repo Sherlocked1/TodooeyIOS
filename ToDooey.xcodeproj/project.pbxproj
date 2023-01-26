@@ -50,6 +50,7 @@
 		F4C2A5B02981B1CD001A916A /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5AF2981B1CD001A916A /* TodoViewModel.swift */; };
 		F4C2A5B22981B1E0001A916A /* TodoAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5B12981B1E0001A916A /* TodoAPIService.swift */; };
 		F4C2A5B429824345001A916A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5B329824345001A916A /* Reachability.swift */; };
+		F4C2A5B72982A8AB001A916A /* TodoNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5B62982A8AB001A916A /* TodoNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		F4C2A5AF2981B1CD001A916A /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		F4C2A5B12981B1E0001A916A /* TodoAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAPIService.swift; sourceTree = "<group>"; };
 		F4C2A5B329824345001A916A /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F4C2A5B62982A8AB001A916A /* TodoNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 		F42F5A9C2980135700B303D6 /* ToDooey */ = {
 			isa = PBXGroup;
 			children = (
+				F4C2A5B52982A873001A916A /* Notification */,
 				F42F5B11298168F400B303D6 /* Lottie Animations */,
 				F42F5B0929813C1100B303D6 /* Firebase */,
 				F42F5B0729812CBB00B303D6 /* GoogleService-Info.plist */,
@@ -327,6 +330,14 @@
 			path = "Lottie Animations";
 			sourceTree = "<group>";
 		};
+		F4C2A5B52982A873001A916A /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				F4C2A5B62982A8AB001A916A /* TodoNotification.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -456,6 +467,7 @@
 				F42F5A9E2980135700B303D6 /* AppDelegate.swift in Sources */,
 				F42F5ACC298021FC00B303D6 /* MyTextField.swift in Sources */,
 				F4C2A5B02981B1CD001A916A /* TodoViewModel.swift in Sources */,
+				F4C2A5B72982A8AB001A916A /* TodoNotification.swift in Sources */,
 				F42F5AC829801D7D00B303D6 /* MyViewController.swift in Sources */,
 				F42F5AD3298038C400B303D6 /* HomeModels.swift in Sources */,
 				F4C2A5AA2981A8EF001A916A /* DateExtensions.swift in Sources */,
