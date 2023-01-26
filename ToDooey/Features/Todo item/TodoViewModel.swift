@@ -26,14 +26,26 @@ class TodoViewModel {
         self.apiServices = TodoAPIService()
     }
     
-    func addTodo(_ todo:TodoVM){
-        apiServices.addTodo(todo) { [weak self] todoID, error in
-            var newTodo = todo
-            newTodo.todoID = todoID!
-            
-            DB.shared.add(TodoItem: newTodo)
-            self?.controller.displayAddedTodo(newTodo)
+    func addTodoWithTitle(_ title:String,andDate date:String){
+        if title.isEmpty {
+            self.controller.displayError(error: "Title cannot be empty!")
+        }else if date.isEmpty {
+            self.controller.displayError(error: "Please specify a date for your task.")
+        }else{
+            let todo = TodoVM.init(id: "", name: title, date: date, isDone: false)
+            apiServices.addTodo(todo) { [weak self] todoID, error in
+                if let error = error{
+                    self?.controller.displayError(error: error.localizedDescription)
+                } else {
+                    var newTodo = todo
+                    newTodo.todoID = todoID!
+                    
+                    DB.shared.add(TodoItem: newTodo)
+                    self?.controller.displayAddedTodo(newTodo)
+                }
+            }
         }
+        
     }
     
     func updateTodoWithId(_ id:String,withData newTodo:TodoVM) {

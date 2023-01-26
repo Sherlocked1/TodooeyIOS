@@ -49,6 +49,7 @@
 		F4C2A5AE2981AD50001A916A /* HomeAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5AD2981AD50001A916A /* HomeAPIServices.swift */; };
 		F4C2A5B02981B1CD001A916A /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5AF2981B1CD001A916A /* TodoViewModel.swift */; };
 		F4C2A5B22981B1E0001A916A /* TodoAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5B12981B1E0001A916A /* TodoAPIService.swift */; };
+		F4C2A5B429824345001A916A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5B329824345001A916A /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		F4C2A5AD2981AD50001A916A /* HomeAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIServices.swift; sourceTree = "<group>"; };
 		F4C2A5AF2981B1CD001A916A /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		F4C2A5B12981B1E0001A916A /* TodoAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAPIService.swift; sourceTree = "<group>"; };
+		F4C2A5B329824345001A916A /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				F42F5B0F2981642400B303D6 /* UICreator.swift */,
+				F4C2A5B329824345001A916A /* Reachability.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				F42F5B0B29813C1F00B303D6 /* FireDB.swift in Sources */,
 				F42F5AA82980135700B303D6 /* ToDooey.xcdatamodeld in Sources */,
 				F42F5AD12980336500B303D6 /* HomeViewController.swift in Sources */,
+				F4C2A5B429824345001A916A /* Reachability.swift in Sources */,
 				F42F5B0529811D4300B303D6 /* DB.swift in Sources */,
 				F42F5B1929816F6000B303D6 /* SignupViewModel.swift in Sources */,
 				F4C2A5B22981B1E0001A916A /* TodoAPIService.swift in Sources */,

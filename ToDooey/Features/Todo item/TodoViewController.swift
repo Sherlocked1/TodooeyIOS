@@ -88,9 +88,7 @@ class TodoViewController : MyViewController {
         let date = dateField.date.toString()
         
         UI.ShowLoadingView()
-        let model:TodoVM = .init(id: UUID().uuidString, name: title, date: date, isDone: false)
-        
-        viewModel?.addTodo(model)
+        self.viewModel?.addTodoWithTitle(title, andDate: date)
     }
     
     func updateTodo(){

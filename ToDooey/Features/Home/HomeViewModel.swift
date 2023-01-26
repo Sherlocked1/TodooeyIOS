@@ -37,6 +37,7 @@ class HomeViewModel {
             if (error != nil){
                 self.controller.displayError(error:error!.localizedDescription)
             }else{
+                DB.shared.deleteAllTodos()
                 DB.shared.add(todos: todos ?? [])
                 self.controller.displayTodos(todos ?? [])
             }

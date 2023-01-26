@@ -12,7 +12,7 @@ class TodoTableViewCell: MyTableCell {
     var data:TodoVM? {
         didSet{
             if let data = data {
-                self.todoTitle.text = data.name
+                self.todoTitle.attributedText = NSAttributedString.init(string: data.name, attributes: [.strikethroughStyle: data.isDone])
                 self.todoDate.text = data.date.getDateStringWithFormat("EE - HH:mm")
                 self.isDoneBtn.isChecked = data.isDone
             }
@@ -23,10 +23,10 @@ class TodoTableViewCell: MyTableCell {
         super.awakeFromNib()
         self.isDoneBtn.onClicked = {
             [weak self] in
-            self?.onChange?()
+            self?.onToggle?()
         }
     }
     
-    var onChange:(()->Void)?
+    var onToggle:(()->Void)?
     
 }

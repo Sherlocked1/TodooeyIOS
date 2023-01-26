@@ -9,8 +9,7 @@ class MyCheckbox: MyButton {
     let checkedImage = UIImage(systemName: "checkmark.circle.fill")!
     let uncheckedImage = UIImage(systemName: "circle")!
     
-    //On change callback event
-    var onChange:((_ boxStatus:Bool) -> Void)?
+    //On click callback event
     var onClicked:(()->Void)?
     
     // Bool property
@@ -21,7 +20,6 @@ class MyCheckbox: MyButton {
             } else {
                 self.setImage(uncheckedImage, for: UIControl.State.normal)
             }
-            onChange?(isChecked)
         }
     }
     
@@ -33,7 +31,7 @@ class MyCheckbox: MyButton {
     
     //Checkbox click event
     func btnClicked(){
-        isChecked = !isChecked
+//        isChecked = !isChecked
         onClicked?()
     }
 }

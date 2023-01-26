@@ -108,6 +108,13 @@ class HomeViewController:MyViewController {
         
         self.present(alertVc, animated: true)
     }
+    
+    override func displayError(error: String) {
+        super.displayError(error: error)
+        if refreshControl.isRefreshing {
+            self.refreshControl.endRefreshing()
+        }
+    }
 }
 
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
@@ -121,7 +128,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TodoTableViewCell.identifier, for: indexPath) as! TodoTableViewCell
         
         cell.data = todos[indexPath.row]
-        cell.onChange = {[weak self] in self?.toggleTodoAtRow(indexPath.row)}
+        cell.onToggle = {[weak self] in self?.toggleTodoAtRow(indexPath.row)}
         
         return cell
     }
@@ -168,6 +175,7 @@ extension HomeViewController : TodoActionDelegate {
     
     func toggleTodoAtRow(_ row:Int){
         let todo = todos[row]
+        UI.ShowLoadingView()
         viewModel?.toggleTodo(todo: todo)
     }
 }
@@ -197,6 +205,7 @@ extension HomeViewController:HomeDisplayLogic {
     }
     
     func displayUpdatedTodo(newTodo:TodoVM) {
+        UI.HideLoadingView()
         let id = newTodo.todoID
         
         let newTodos:[TodoVM] = self.todos.map { todo in
@@ -209,5 +218,4 @@ extension HomeViewController:HomeDisplayLogic {
         self.todos = newTodos
         self.todoTable.reloadData()
     }
-    
 }
