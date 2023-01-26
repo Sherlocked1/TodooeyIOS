@@ -19,6 +19,11 @@ With this app, you can easily keep track of your daily tasks and stay organized.
 <li>Set due dates and reminders for tasks to stay on top of your to-do list</li>
 </ul>
 
+
+<h3>About the project</h3>
+The project was developed and designed with MVVM architecture.
+The data is stored in firestore and the user authentication is via firebase authentication.
+
 <h3>Support</h3>
 
-If you have any questions or need assistance with the Todo iOS app, please contact me.
+If you have any questions or need assistance with the project, please contact me.
