@@ -10,7 +10,6 @@
 		0DBD35CDE3C664ADCC8D6C1E /* Pods_ToDooey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE0AC87373C14D070D04343 /* Pods_ToDooey.framework */; };
 		F42F5A9E2980135700B303D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5A9D2980135700B303D6 /* AppDelegate.swift */; };
 		F42F5AA02980135700B303D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5A9F2980135700B303D6 /* SceneDelegate.swift */; };
-		F42F5AA22980135700B303D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AA12980135700B303D6 /* ViewController.swift */; };
 		F42F5AA52980135700B303D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42F5AA32980135700B303D6 /* Main.storyboard */; };
 		F42F5AA82980135700B303D6 /* ToDooey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AA62980135700B303D6 /* ToDooey.xcdatamodeld */; };
 		F42F5AAA2980135A00B303D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42F5AA92980135A00B303D6 /* Assets.xcassets */; };
@@ -24,7 +23,7 @@
 		F42F5ACC298021FC00B303D6 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ACB298021FC00B303D6 /* MyTextField.swift */; };
 		F42F5ACE2980280700B303D6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ACD2980280700B303D6 /* SignupViewController.swift */; };
 		F42F5AD12980336500B303D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AD02980336500B303D6 /* HomeViewController.swift */; };
-		F42F5AD3298038C400B303D6 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AD2298038C400B303D6 /* HomeModels.swift */; };
+		F42F5AD3298038C400B303D6 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AD2298038C400B303D6 /* TodoModel.swift */; };
 		F42F5AD8298039DB00B303D6 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5AD6298039DB00B303D6 /* TodoTableViewCell.swift */; };
 		F42F5AD9298039DB00B303D6 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42F5AD7298039DB00B303D6 /* TodoTableViewCell.xib */; };
 		F42F5ADB29803A1D00B303D6 /* MyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5ADA29803A1C00B303D6 /* MyTableCell.swift */; };
@@ -41,7 +40,6 @@
 		F42F5B1929816F6000B303D6 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B1829816F6000B303D6 /* SignupViewModel.swift */; };
 		F42F5B1B29816F7700B303D6 /* SignupAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B1A29816F7700B303D6 /* SignupAPIServices.swift */; };
 		F42F5B1D29817C8E00B303D6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B1C29817C8D00B303D6 /* UIColorExtension.swift */; };
-		F42F5B1F2981859900B303D6 /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F5B1E2981859900B303D6 /* MyTextView.swift */; };
 		F4C2A5A629819F7F001A916A /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = F4C2A5A529819F7E001A916A /* splash.json */; };
 		F4C2A5A82981A8E5001A916A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5A72981A8E4001A916A /* StringExtensions.swift */; };
 		F4C2A5AA2981A8EF001A916A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2A5A92981A8EF001A916A /* DateExtensions.swift */; };
@@ -60,7 +58,6 @@
 		F42F5A9A2980135700B303D6 /* ToDooey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDooey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42F5A9D2980135700B303D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F42F5A9F2980135700B303D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F42F5AA12980135700B303D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F42F5AA42980135700B303D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F42F5AA72980135700B303D6 /* ToDooey.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDooey.xcdatamodel; sourceTree = "<group>"; };
 		F42F5AA92980135A00B303D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,7 +72,7 @@
 		F42F5ACB298021FC00B303D6 /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
 		F42F5ACD2980280700B303D6 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F42F5AD02980336500B303D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		F42F5AD2298038C400B303D6 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		F42F5AD2298038C400B303D6 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		F42F5AD6298039DB00B303D6 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		F42F5AD7298039DB00B303D6 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		F42F5ADA29803A1C00B303D6 /* MyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableCell.swift; sourceTree = "<group>"; };
@@ -92,7 +89,6 @@
 		F42F5B1829816F6000B303D6 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		F42F5B1A29816F7700B303D6 /* SignupAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAPIServices.swift; sourceTree = "<group>"; };
 		F42F5B1C29817C8D00B303D6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		F42F5B1E2981859900B303D6 /* MyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 		F4C2A5A529819F7E001A916A /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		F4C2A5A72981A8E4001A916A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		F4C2A5A92981A8EF001A916A /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -163,7 +159,6 @@
 				F42F5AB42980159100B303D6 /* Features */,
 				F42F5A9D2980135700B303D6 /* AppDelegate.swift */,
 				F42F5A9F2980135700B303D6 /* SceneDelegate.swift */,
-				F42F5AA12980135700B303D6 /* ViewController.swift */,
 				F42F5AA92980135A00B303D6 /* Assets.xcassets */,
 				F42F5AA32980135700B303D6 /* Main.storyboard */,
 				F42F5AAB2980135A00B303D6 /* LaunchScreen.storyboard */,
@@ -224,6 +219,7 @@
 		F42F5ABE29801A7F00B303D6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F4C2A5B82982C3C3001A916A /* Models */,
 				F42F5B0E2981640D00B303D6 /* Utils */,
 				F42F5AC429801BD000B303D6 /* Base classes */,
 				F42F5ABF29801A8600B303D6 /* Extensions */,
@@ -252,7 +248,6 @@
 				F42F5ADA29803A1C00B303D6 /* MyTableCell.swift */,
 				F42F5ADF298100CC00B303D6 /* MyCheckbox.swift */,
 				F42F5B0C298163E500B303D6 /* BlurredView.swift */,
-				F42F5B1E2981859900B303D6 /* MyTextView.swift */,
 			);
 			path = "Base classes";
 			sourceTree = "<group>";
@@ -261,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				F42F5AD02980336500B303D6 /* HomeViewController.swift */,
-				F42F5AD2298038C400B303D6 /* HomeModels.swift */,
 				F4C2A5AB2981AD34001A916A /* HomeViewModel.swift */,
 				F4C2A5AD2981AD50001A916A /* HomeAPIServices.swift */,
 			);
@@ -336,6 +330,14 @@
 				F4C2A5B62982A8AB001A916A /* TodoNotification.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		F4C2A5B82982C3C3001A916A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F42F5AD2298038C400B303D6 /* TodoModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,14 +464,13 @@
 				F42F5AC629801BE300B303D6 /* MyView.swift in Sources */,
 				F42F5ABD298016DA00B303D6 /* LoginViewController.swift in Sources */,
 				F42F5B102981642400B303D6 /* UICreator.swift in Sources */,
-				F42F5AA22980135700B303D6 /* ViewController.swift in Sources */,
 				F42F5AD8298039DB00B303D6 /* TodoTableViewCell.swift in Sources */,
 				F42F5A9E2980135700B303D6 /* AppDelegate.swift in Sources */,
 				F42F5ACC298021FC00B303D6 /* MyTextField.swift in Sources */,
 				F4C2A5B02981B1CD001A916A /* TodoViewModel.swift in Sources */,
 				F4C2A5B72982A8AB001A916A /* TodoNotification.swift in Sources */,
 				F42F5AC829801D7D00B303D6 /* MyViewController.swift in Sources */,
-				F42F5AD3298038C400B303D6 /* HomeModels.swift in Sources */,
+				F42F5AD3298038C400B303D6 /* TodoModel.swift in Sources */,
 				F4C2A5AA2981A8EF001A916A /* DateExtensions.swift in Sources */,
 				F42F5ACE2980280700B303D6 /* SignupViewController.swift in Sources */,
 				F42F5B1B29816F7700B303D6 /* SignupAPIServices.swift in Sources */,
@@ -478,7 +479,6 @@
 				F42F5B1D29817C8E00B303D6 /* UIColorExtension.swift in Sources */,
 				F42F5AE0298100CC00B303D6 /* MyCheckbox.swift in Sources */,
 				F42F5ADB29803A1D00B303D6 /* MyTableCell.swift in Sources */,
-				F42F5B1F2981859900B303D6 /* MyTextView.swift in Sources */,
 				F42F5AB9298015DE00B303D6 /* SplashScreenViewController.swift in Sources */,
 				F42F5ACA29801FB100B303D6 /* MyButton.swift in Sources */,
 				F42F5ADE2980463D00B303D6 /* TodoViewController.swift in Sources */,
@@ -568,7 +568,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -622,7 +622,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -648,7 +648,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -678,7 +678,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

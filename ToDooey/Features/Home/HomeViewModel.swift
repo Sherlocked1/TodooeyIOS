@@ -49,6 +49,10 @@ class HomeViewModel {
             if (error != nil){
                 self.controller.displayError(error: error!.localizedDescription)
             }else{
+                //delete all todo items from core data
+                DB.shared.deleteAllTodos()
+                //remove all scheduled notifications
+                TodoNotificationManager.shared.removeAllScheduledNotifications()
                 self.controller.logUserOut()
             }
         }
@@ -60,6 +64,10 @@ class HomeViewModel {
             if (error != nil){
                 self.controller.displayError(error: error!.localizedDescription)
             }else{
+                
+                //delete todo from notification center
+                TodoNotificationManager.shared.removeScheduledNotification(ForTodo: todo)
+                //delete todo item from core data
                 DB.shared.deleteTodo(withId:todo.todoID)
                 self.controller.displayDeletedTodoAtRow(row)
             }
@@ -69,7 +77,6 @@ class HomeViewModel {
     func toggleTodo(todo:TodoVM){
         var newTodo = todo
         newTodo.isDone = !todo.isDone
-        print(newTodo)
         apiServices.toggleTodo(newTodo) { error in
             if (error != nil) {
                 self.controller.displayError(error: error!.localizedDescription)

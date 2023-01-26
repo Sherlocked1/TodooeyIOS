@@ -26,12 +26,9 @@ class TodoViewModel {
         self.apiServices = TodoAPIService()
     }
     
+    //validate fields data and and add the todo item to coredata and firestore
     func addTodoWithTitle(_ title:String,andDate date:String){
-        if title.isEmpty {
-            self.controller.displayError(error: "Title cannot be empty!")
-        }else if date.isEmpty {
-            self.controller.displayError(error: "Please specify a date for your task.")
-        }else{
+        if dataIsValid(title: title, date: date) {
             let todo = TodoVM.init(id: "", name: title, date: date, isDone: false)
             apiServices.addTodo(todo) { [weak self] todoID, error in
                 if let error = error{
@@ -39,7 +36,7 @@ class TodoViewModel {
                 } else {
                     var newTodo = todo
                     newTodo.todoID = todoID!
-                    
+                    TodoNotificationManager.shared.scheduleNotification(for: newTodo)
                     DB.shared.add(TodoItem: newTodo)
                     self?.controller.displayAddedTodo(newTodo)
                 }
@@ -48,13 +45,30 @@ class TodoViewModel {
         
     }
     
+    ///validates the given title and date strings
+    func dataIsValid(title:String,date:String) -> Bool {
+        if title.isEmpty {
+            self.controller.displayError(error: "Title cannot be empty!")
+            return false
+        }else if date.isEmpty {
+            self.controller.displayError(error: "Please specify a date for your task.")
+            return false
+        }else{
+            return true
+        }
+    }
+    
+    
     func updateTodoWithId(_ id:String,withData newTodo:TodoVM) {
-        self.apiServices.updateTodoWithId(id, withData: newTodo) { error in
-            if (error != nil){
-                self.controller.displayError(error: error!.localizedDescription)
-            }else{
-                DB.shared.updateTodoWithId(id, withNewTodo: newTodo)
-                self.controller.displayUpdatedTodo(newTodo)
+        if dataIsValid(title: newTodo.name, date: newTodo.date){
+            self.apiServices.updateTodoWithId(id, withData: newTodo) { error in
+                if (error != nil){
+                    self.controller.displayError(error: error!.localizedDescription)
+                }else{
+                    TodoNotificationManager.shared.updateTodo(newTodo)
+                    DB.shared.updateTodoWithId(id, withNewTodo: newTodo)
+                    self.controller.displayUpdatedTodo(newTodo)
+                }
             }
         }
     }

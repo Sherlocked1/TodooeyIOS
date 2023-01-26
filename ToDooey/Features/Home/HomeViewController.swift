@@ -35,15 +35,24 @@ class HomeViewController:MyViewController {
         
         //adds refresh control to the table view
         todoTable.addSubview(refreshControl)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
+        //If todos list is empty load from firestore
         if todos.isEmpty {
             fetchAllTodos()
         }
-        
+    }
+    
+    //Changes navigation bar's title, tint color and back button color
+    func personalizeNavBar() {
+        self.navigationController?.navigationBar.tintColor = .label
+        self.navigationItem.title = Auth.auth().currentUser?.displayName ?? "ToDooey"
+        self.navigationController?.editButtonItem.tintColor = .label
+    }
+    
+    //disables the back gesture and hides the back button
+    //so the user is not able to go back to the previous screen
+    func disableBackGesture() {
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     func fetchAllTodos(){
@@ -67,19 +76,6 @@ class HomeViewController:MyViewController {
     @objc func refresh(_ sender: AnyObject) {
        // Code to refresh table view
         self.fetchAllTodos()
-    }
-    
-    //Changes navigation bar's title, tint color and back button color
-    func personalizeNavBar() {
-        self.navigationController?.navigationBar.tintColor = .label
-        self.navigationItem.title = Auth.auth().currentUser?.displayName ?? "ToDooey"
-        self.navigationController?.editButtonItem.tintColor = .label
-    }
-    
-    //disables the back gesture and hides the back button
-    //so the user is not able to go back to the previous screen
-    func disableBackGesture() {
-        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     //setting up the signout button
@@ -160,17 +156,17 @@ extension HomeViewController : TodoActionDelegate {
     
     //delete item from table view
     func deleteTodoItem(_ todoitem:TodoVM,atRow row:Int) {
-        TodoNotificationManager.shared.center.removePendingNotificationRequests(withIdentifiers: [todoitem.todoID])
         UI.ShowLoadingView()
         viewModel?.deleteTodo(todoitem, atRow: row)
     }
     
+    //Add todo to table
     func addTodo(_ todo: TodoVM) {
-        TodoNotificationManager.shared.scheduleNotification(for: todo)
         self.todos.append(todo)
         self.todoTable.reloadData()
     }
     
+
     func updateTodo(with newTodo: TodoVM) {
         self.displayUpdatedTodo(newTodo: newTodo)
     }
@@ -184,6 +180,7 @@ extension HomeViewController : TodoActionDelegate {
 
 extension HomeViewController:HomeDisplayLogic {
     
+    ///display fetched todos
     func displayTodos(_ todos: [TodoVM]) {
         UI.HideLoadingView()
         refreshControl.endRefreshing()
@@ -191,6 +188,7 @@ extension HomeViewController:HomeDisplayLogic {
         self.todoTable.reloadData()
     }
     
+    ///navigates to login view
     func logUserOut() {
         UI.HideLoadingView()
         let vc = LoginViewController.instantiate(storyboard: .init(name: "Main", bundle: .main))
@@ -200,12 +198,14 @@ extension HomeViewController:HomeDisplayLogic {
         window?.makeKeyAndVisible()
     }
     
+    ///delete todo from row
     func displayDeletedTodoAtRow(_ row: Int) {
         UI.HideLoadingView()
         self.todos.remove(at: row)
         self.todoTable.deleteRows(at: [.init(row: row, section: 0)], with: .left)
     }
     
+    //update todo in table
     func displayUpdatedTodo(newTodo:TodoVM) {
         UI.HideLoadingView()
         let id = newTodo.todoID

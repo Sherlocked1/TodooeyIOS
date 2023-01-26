@@ -12,8 +12,6 @@ class HomeAPIServices : HomeAPI {
         do {
             try Auth.auth().signOut()
             //successfully logged out
-            //Delete all todo data
-            DB.shared.deleteAllTodos()
             //Move back to login screen
             handler(nil)
         }catch{

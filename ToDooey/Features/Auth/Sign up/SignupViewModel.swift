@@ -22,6 +22,7 @@ class SignupViewModel {
         self.apiServices = SignupAPIServices()
     }
     
+    //validates the sign up form fields and signing user up if everything is set
     func signUpWithEmail(_ email:String,name:String,password:String,AndConfirmPassword confirmPassowrd:String){
         if (email.isEmpty){
             self.controller.displayError(error: "Email cannot be empty")

@@ -39,21 +39,15 @@ class TodoViewController : MyViewController {
         if let _ = todoItem {
             action = .UPDATE
         }
-        
-        viewModel = TodoViewModel(controller: self)
-        
         super.viewDidLoad()
         
+        viewModel = TodoViewModel(controller: self)
         personalizeNavBar()
         personalizeView()
+        
         if action == .UPDATE {
             fillFields()
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.hideNavBar = false
     }
     
     //Changes navigation bar tint color and title
@@ -62,17 +56,19 @@ class TodoViewController : MyViewController {
         self.navigationItem.title = action == .ADD ? "Add todo" : "Update todo"
     }
     
+    ///set some attributes depending on the current flow (either is adding a todo or updating one)
     func personalizeView(){
         ctaBtn.setTitle(action == .ADD ? "Add" : "Update", for: .normal)
         dateField.date = Date()
     }
     
+    ///fill form field if the user is updating a todo
     func fillFields(){
         self.titleField.text = todoItem?.name
         self.dateField.date = todoItem!.date.toDate()
     }
     
-    
+    //event handling for components
     override func handleEvents(){
         super.handleEvents()
         
@@ -80,9 +76,11 @@ class TodoViewController : MyViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
         
+        //Call to action button event will change depending on the action
         ctaBtn.handleTap = action == .ADD ? addTodo : updateTodo
     }
     
+    //add a todo item
     func addTodo(){
         let title = self.titleField.text!.removeWhitespaces()
         let date = dateField.date.toString()
@@ -91,6 +89,7 @@ class TodoViewController : MyViewController {
         self.viewModel?.addTodoWithTitle(title, andDate: date)
     }
     
+    //update a todo item
     func updateTodo(){
         let title = self.titleField.text!.removeWhitespaces()
         let date = dateField.date.toString()
@@ -116,11 +115,13 @@ class TodoViewController : MyViewController {
 }
 
 extension TodoViewController : TodoDisplayLogic {
+    //display added todo item (after the call is finished)
     func displayAddedTodo(_ todo: TodoVM) {
         UI.HideLoadingView()
         self.navigationController?.popViewController(animated: true)
         todoDelegate?.addTodo(todo)
     }
+    //display updated todo item
     func displayUpdatedTodo(_ todo: TodoVM) {
         UI.HideLoadingView()
         self.navigationController?.popViewController(animated: true)

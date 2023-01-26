@@ -16,9 +16,8 @@ class FireDB {
     static let shared = FireDB()
     
     
+    ///get todos for the current user
     func getTodos(callBack : @escaping (_ todos:[TodoVM]?,_ error:Error?) -> Void){
-        
-        
         if !isOnline() {
             callBack(nil,APIError.Connection)
         } else {

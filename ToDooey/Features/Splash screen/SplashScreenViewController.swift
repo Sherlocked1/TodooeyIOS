@@ -13,15 +13,21 @@ class SplashScreenViewController:UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        animationView.animationSpeed = 2
+        //adjusting animation speed
+        animationView.animationSpeed = 1.5
+        
+        //playing the animation
         animationView.play { [weak self] completed in
             if completed {
+                //checks userstatus on animation finish
                 self?.checkUserStatus()
             }
         }
         
     }
     
+    ///checks firebase authentication user status
+    ///and routes to the login screen if the user does not exist
     func checkUserStatus () {
         
         handler = Auth.auth().addStateDidChangeListener { auth, user in
@@ -44,6 +50,7 @@ class SplashScreenViewController:UIViewController {
         }
     }
     
+    // removes the auth listener after leaving the splash screen
     override func viewDidDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(handler!)
     }

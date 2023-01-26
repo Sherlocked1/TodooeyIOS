@@ -42,6 +42,7 @@ class LoginViewController : MyViewController , LoginDisplayLogic {
         viewModel?.loginUserWithEmail(email, andPassword: password)
     }
     
+    //navigate to home view after a successful login
     func navigateToHome() {
         UI.HideLoadingView()
         HomeViewController.instantiateAndPush(navigationController: (self.navigationController)!, animated: true)

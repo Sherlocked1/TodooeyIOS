@@ -2,7 +2,7 @@
 
 import Foundation
 
-struct TodoVM : Codable {
+struct TodoVM {
     var todoID  :String
     var name    :String
     var date    :String
