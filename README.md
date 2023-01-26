@@ -21,8 +21,9 @@ With this app, you can easily keep track of your daily tasks and stay organized.
 
 
 <h3>About the project</h3>
-The project was developed and designed with MVVM architecture.
-The data is stored in firestore and the user authentication is via firebase authentication.
+<p>The project was developed and designed with MVVM architecture.</p>
+<p>The data is stored in firestore and the user authentication is via firebase authentication.</p>
+<p>Used apple's notification center to schedule due date notifications for the app.</p>
 
 <h3>Support</h3>
 
