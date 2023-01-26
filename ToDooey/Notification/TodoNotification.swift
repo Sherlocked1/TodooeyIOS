@@ -49,16 +49,8 @@ class TodoNotificationManager {
     func removeScheduledNotification(ForTodo todo:TodoVM){
         center.requestAuthorization { granted, error in
             guard granted else {return }
-            self.center.getPendingNotificationRequests { requests in
-                
-                let matchingRequests = requests.filter { req in
-                    req.identifier == todo.todoID
-                }
-                
-                if !matchingRequests.isEmpty{
-                    self.center.removePendingNotificationRequests(withIdentifiers: [todo.todoID])
-                }
-                
+            if granted {
+                self.center.removePendingNotificationRequests(withIdentifiers: [todo.todoID])
             }
         }
     }

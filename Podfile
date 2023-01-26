@@ -7,6 +7,6 @@ target 'ToDooey' do
   # Pods for ToDooey
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
-  pod 'lottie-ios'
+  pod 'lottie-ios','3.4.3'
   
 end
